@@ -27,3 +27,4 @@ Icon
 
 # Temporary files
 tmp/
+git/.config/git/config.user
