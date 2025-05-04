@@ -1,0 +1,9 @@
+# Git commit signing configuration
+
+# Use SSH format for GPG
+[gpg]
+	format = ssh
+
+# Sign all commits by default
+[commit]
+	gpgsign = true

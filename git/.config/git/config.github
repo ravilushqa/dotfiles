@@ -1,0 +1,5 @@
+# GitHub-specific configuration
+
+# General SSH preference for GitHub
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com

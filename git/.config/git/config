@@ -1,0 +1,20 @@
+# Main Git configuration
+# This file is the main entry point for Git configuration
+
+# Include other configuration files
+[include]
+	# Core settings (aliases, etc.)
+	path = ~/.config/git/config.core
+	# User identity settings (should be customized)
+	path = ~/.config/git/config.user
+	# GitHub specific settings
+	path = ~/.config/git/config.github
+	# GPG/Signing settings
+	path = ~/.config/git/config.signing
+
+# LFS configuration
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

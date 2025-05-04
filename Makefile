@@ -62,12 +62,12 @@ stow:
 
 git-local:
 	@echo "==> Setting up git local configuration"
-	@if [ ! -f "$(HOME)/.gitconfig.local" ]; then \
-		cp $(DOTFILES_DIR)/git/.gitconfig.local.example $(HOME)/.gitconfig.local; \
-		echo "✓ Created ~/.gitconfig.local"; \
-		echo "ℹ Please edit ~/.gitconfig.local with your git credentials"; \
+	@if [ ! -f "$(DOTFILES_DIR)/git/.config/git/config.user" ]; then \
+		cp $(DOTFILES_DIR)/git/.config/git/config.user.example $(DOTFILES_DIR)/git/.config/git/config.user; \
+		echo "✓ Created git/.config/git/config.user"; \
+		echo "ℹ Please edit git/.config/git/config.user with your git credentials"; \
 	else \
-		echo "✓ ~/.gitconfig.local already exists"; \
+		echo "✓ git/.config/git/config.user already exists"; \
 	fi
 
 work:

@@ -1,25 +1,5 @@
-[url "ssh://git@github.com-dh/deliveryhero"]
-	insteadOf = https://github.com/deliveryhero
-[user]
-	name = ravilushqa
-	email = galaktionov.r@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtTtZSjhOvRQI96iUaVZ4vqlBCEsi90T6faLtfPZxx4
-[url "git@github.com-personal:"]
-	insteadOf = https://github.com/
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[includeIf "gitdir:~/projects/dh/"]
-    path = ~/projects/dh/.gitconfig
-[url "ssh://git@github.com"]
-	insteadOf = https://github.com
-[alias]
-	lg = log --color --graph --abbrev-commit\n           --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'
-[gpg]
-	format = ssh
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-[commit]
-	gpgsign = true
+# Global Git configuration
+# This file automatically includes the modular configuration
+
+[include]
+	path = /Users/ravil/.config/git/config

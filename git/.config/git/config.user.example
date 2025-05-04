@@ -1,0 +1,7 @@
+# Example user identity configuration
+# Copy this file to config.user and customize with your details
+
+[user]
+	name = Your Name
+	email = your.email@example.com
+	signingkey = ssh-ed25519 YOUR_SSH_KEY_HERE

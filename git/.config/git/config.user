@@ -1,0 +1,7 @@
+# User identity configuration
+# This file contains your git identity
+
+[user]
+	name = ravilushqa
+	email = galaktionov.r@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0cSkXWw7TxJY/oEamdzGe1GrOzxYQdOPdbNGRv1em+
