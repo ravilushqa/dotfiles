@@ -1,8 +1,29 @@
-# Ignore backup and OS files
-*~
-*.swp
-*.bak
-*.tmp
+# macOS system files
 .DS_Store
-__pycache__
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Local configuration files
+*.local
+.gitconfig.local
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Claude settings
+**/.claude/settings.local.json
+
+# Temporary files
 tmp/

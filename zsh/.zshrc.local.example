@@ -1,0 +1,13 @@
+# Example local Zsh configuration
+# Copy this file to ~/.zshrc.local and customize with your API keys and secrets
+
+# API Keys
+export GITHUB_TOKEN_PERSONAL="your_github_token"
+export OPENAI_API_KEY="your_openai_api_key" 
+export ANTHROPIC_API_KEY="your_anthropic_api_key"
+export DEEPSEEK_API_KEY="your_deepseek_api_key"
+
+# Other tokens
+export TELEGRAM_BOT_TOKEN="your_telegram_bot_token"
+
+# Add any machine-specific configurations below
