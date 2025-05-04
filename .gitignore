@@ -1,0 +1,7 @@
+# Ignore backup and OS files
+*~
+*.swp
+*.bak
+*.tmp
+.DS_Store
+__pycache__
