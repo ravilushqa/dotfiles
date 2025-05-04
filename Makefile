@@ -1,11 +1,11 @@
 SHELL := /usr/bin/env bash
-.PHONY: all install homebrew update brew-bundle stow git-local work
+.PHONY: all install homebrew update brew-bundle stow git-local work ghostty
 
 DOTFILES_DIR := $(CURDIR)
 
 all: install
 
-install: homebrew update brew-bundle stow git-local work
+install: homebrew update brew-bundle stow
 	@echo
 	@echo "=========================================="
 	@echo "Dotfiles installation complete!"
@@ -56,26 +56,15 @@ stow:
 	fi
 	@echo "  -> Stowing zsh configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt zsh
+
 	@echo "  -> Stowing git configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt git
+
+	@echo "  -> Stowing ghostty configuration"
+	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt ghostty
+
+
+	@echo "  -> Stowing ssh configuration"
+	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt ssh
+
 	@echo "✓ Configuration files stowed successfully"
-
-git-local:
-	@echo "==> Setting up git local configuration"
-	@if [ ! -f "$(DOTFILES_DIR)/git/.config/git/config.user" ]; then \
-		cp $(DOTFILES_DIR)/git/.config/git/config.user.example $(DOTFILES_DIR)/git/.config/git/config.user; \
-		echo "✓ Created git/.config/git/config.user"; \
-		echo "ℹ Please edit git/.config/git/config.user with your git credentials"; \
-	else \
-		echo "✓ git/.config/git/config.user already exists"; \
-	fi
-
-work:
-	@echo "==> Setting up work-specific configurations"
-	@if [ ! -f "$(HOME)/.zshrc.local" ] && [ -f "$(DOTFILES_DIR)/zsh/.zshrc.local.example" ]; then \
-		cp $(DOTFILES_DIR)/zsh/.zshrc.local.example $(HOME)/.zshrc.local; \
-		echo "✓ Created ~/.zshrc.local"; \
-		echo "ℹ Please edit ~/.zshrc.local with your work-specific settings"; \
-	else \
-		echo "ℹ Skipping .zshrc.local creation"; \
-	fi

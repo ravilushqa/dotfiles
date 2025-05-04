@@ -1,0 +1,6 @@
+theme = nord
+# shell-integration = zsh
+keybind = cmd+s>r=reload_config
+#font-family = JetBrains Mono
+font-family = BerkeleyMono Nerd Font
+keybind = global:cmd+grave_accent=toggle_quick_terminal
