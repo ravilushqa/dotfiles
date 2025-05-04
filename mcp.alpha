@@ -1,0 +1,75 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "autoApprove": [
+        "fetch"
+      ],
+      "disabled": false,
+      "timeout": 60,
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "transportType": "stdio"
+    },
+    "brave-search": {
+      "autoApprove": [
+        "brave_web_search",
+        "brave_local_search"
+      ],
+      "timeout": 60,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "SECRET"
+      },
+      "transportType": "stdio"
+    },
+    "context7-mcp": {
+      "autoApprove": [
+        "resolve-library-id",
+        "get-library-docs"
+      ],
+      "timeout": 60,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "transportType": "stdio"
+    },
+    "github": {
+      "autoApprove": [
+        "search_repositories",
+        "get_file_contents",
+        "search_code",
+        "search_issues",
+        "get_issue",
+        "get_pull_request",
+        "list_pull_requests",
+        "get_pull_request_files",
+        "get_pull_request_status",
+        "get_pull_request_comments",
+        "get_pull_request_reviews"
+      ],
+      "disabled": false,
+      "timeout": 60,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "transportType": "stdio",
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "SECRET"
+      },
+      "alwaysAllow": [
+        "search_repositories",
+        "get_pull_request_comments"
+      ]
+    }
+  }
+}
