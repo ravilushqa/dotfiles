@@ -70,6 +70,28 @@
         "search_repositories",
         "get_pull_request_comments"
       ]
+    },
+    "mcp_k8s_go": {
+      "command": "mcp-k8s-go",
+      "args": []
+    },
+    "serena": {
+      "command": "/opt/homebrew/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/ravil/projects/mcp/serena",
+        "serena-mcp-server",
+        "--project-file",
+        "/Users/ravil/projects/mcp/serena/homelab.project.yml"
+      ],
+      "env": {
+        "PATH": "/Users/ravil/go/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     }
   }
 }
