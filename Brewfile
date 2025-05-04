@@ -40,6 +40,7 @@ brew "fd"                  # Simple, fast and user-friendly alternative to find
 brew "eza"                 # Modern replacement for ls
 brew "zsh-autosuggestions" # Fish-like autosuggestions for zsh
 brew "stow"                # Symlink farm manager
+brew "jira-cli"                # Symlink farm manager
 
 # Applications
 cask "1password-cli"        # 1Password command-line interface
@@ -63,3 +64,4 @@ cask "obsidian"             # Knowledge base that works on local Markdown files
 cask "font-hack-nerd-font"  # Font with programming ligatures and icons
 cask "ghostty"              # Fast terminal emulator
 cask "syncthing"            # Open source continuous file synchronization
+cask "visual-studio-code"   # VS Code
