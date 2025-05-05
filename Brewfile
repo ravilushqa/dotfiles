@@ -65,3 +65,4 @@ cask "font-hack-nerd-font"  # Font with programming ligatures and icons
 cask "ghostty"              # Fast terminal emulator
 cask "syncthing"            # Open source continuous file synchronization
 cask "visual-studio-code"   # VS Code
+cask "superwhisper"         # AI voice input

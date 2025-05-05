@@ -1,4 +1,9 @@
 # Core Git configuration
+[core]
+	autocrlf = input
+	editor = vim
+	pager = less -FRX
+	excludesfile = ~/.gitignore_global
 
 # Useful aliases
 [alias]

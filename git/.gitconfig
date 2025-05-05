@@ -2,4 +2,4 @@
 # This file automatically includes the modular configuration
 
 [include]
-	path = /Users/ravil/.config/git/config
+	path = ~/.config/git/config
