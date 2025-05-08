@@ -35,3 +35,7 @@ find_git_logs() {
             printf "\nRepository: \033[1;35m$repo_name\033[0m\n$git_log_output\n";
         fi' "$days" \;
 }
+
+reload() {
+    source ~/.zshrc
+}
