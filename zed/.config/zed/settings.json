@@ -1,0 +1,108 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "agent": {
+    "default_open_ai_model": "gpt-4.1",
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "terminal": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "copy_path": true,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "thinking": true
+        },
+        "enable_all_context_servers": true
+      }
+    },
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    },
+    "version": "2"
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "base_keymap": "JetBrains",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "Nord",
+    "dark": "Nord"
+  },
+  "file_scan_exclusions": ["*_backup.go", ".idea", ".git", ".DS_Store"],
+  "lsp": {
+    "gopls": {
+      "gofumpt": true,
+      "initialization_options": {
+        "buildFlags": ["-tags=integration"],
+        "directoryFilters": ["-**/node_modules", "-**/.git"],
+        "gofumpt": true,
+        "symbolScope": "workspace",
+        "staticcheck": true,
+        "templateExtensions": ["tmpl"],
+        "analyses": {
+          "nilness": true,
+          "unusedparams": true,
+          "unusedvariable": true,
+          "unusedwrite": true,
+          "useany": true
+        },
+        "codelenses": {
+          "gc_details": true
+        }
+      }
+    }
+  },
+  "experimental.theme_overrides": {
+    "players": [
+      {
+        "cursor": "#eceff4"
+      }
+    ]
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "settings": {
+        "github_personal_access_token": "op://Private/GitHub-PAT/credential"
+      }
+    },
+    "mcp-server-brave-search": {
+      "settings": {
+        "brave_api_key": "op://Private/Brave-API/credential"
+      }
+    }
+  }
+}

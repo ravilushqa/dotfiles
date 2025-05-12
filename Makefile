@@ -67,4 +67,7 @@ stow:
 	@echo "  -> Stowing ssh configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt ssh
 
+	@echo "  -> Stowing zed configuration"
+	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt zed
+
 	@echo "✓ Configuration files stowed successfully"
