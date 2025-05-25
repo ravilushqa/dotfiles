@@ -38,3 +38,5 @@ if command -v direnv &> /dev/null; then
 fi
 
 autoload -U compinit; compinit
+
+eval "$(zoxide init zsh)"

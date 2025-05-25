@@ -1,5 +1,5 @@
 SHELL := /usr/bin/env bash
-.PHONY: all install homebrew update brew-bundle stow git-local work ghostty
+.PHONY: all install homebrew update brew-bundle stow
 
 DOTFILES_DIR := $(CURDIR)
 
@@ -62,7 +62,6 @@ stow:
 
 	@echo "  -> Stowing ghostty configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt ghostty
-
 
 	@echo "  -> Stowing ssh configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt ssh

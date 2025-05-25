@@ -38,9 +38,10 @@ brew "starship"            # Cross-shell prompt
 brew "fzf"                 # Command-line fuzzy finder
 brew "fd"                  # Simple, fast and user-friendly alternative to find
 brew "eza"                 # Modern replacement for ls
+brew "zoxide"              # Modern replacement for cd
 brew "zsh-autosuggestions" # Fish-like autosuggestions for zsh
 brew "stow"                # Symlink farm manager
-brew "jira-cli"                # Symlink farm manager
+brew "jira-cli"            # Jira command-line interface
 
 # Applications
 cask "1password-cli"        # 1Password command-line interface
