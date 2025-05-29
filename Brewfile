@@ -63,6 +63,7 @@ cask "openlens"             # Kubernetes IDE
 cask "zed"                  # High-performance, multiplayer code editor
 cask "obsidian"             # Knowledge base that works on local Markdown files
 cask "font-hack-nerd-font"  # Font with programming ligatures and icons
+cask "font-jetbrains-mono-nerd-font" # JetBrains Mono Nerd Font
 cask "ghostty"              # Fast terminal emulator
 cask "syncthing"            # Open source continuous file synchronization
 cask "visual-studio-code"   # VS Code
