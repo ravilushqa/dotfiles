@@ -62,7 +62,7 @@
     "light": "Nord",
     "dark": "Nord"
   },
-  "file_scan_exclusions": ["*_backup.go", ".idea", ".git", ".DS_Store"],
+  "file_scan_exclusions": ["*_backup.go", ".idea", ".git/", ".DS_Store"],
   "lsp": {
     "gopls": {
       "gofumpt": true,
