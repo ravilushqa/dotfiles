@@ -68,3 +68,5 @@ cask "ghostty"              # Fast terminal emulator
 cask "syncthing"            # Open source continuous file synchronization
 cask "visual-studio-code"   # VS Code
 cask "superwhisper"         # AI voice input
+cask "wifiman"              # Ubiquiti WiFi manager
+cask "aldente"              # macOS battery saver 
