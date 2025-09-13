@@ -70,5 +70,7 @@ cask "syncthing"            # Open source continuous file synchronization
 cask "visual-studio-code"   # VS Code
 cask "superwhisper"         # AI voice input
 cask "wifiman"              # Ubiquiti WiFi manager
-cask "aldente"              # macOS battery saver 
+cask "aldente"              # macOS battery saver
 cask "pearcleaner"          # Cleaner for macOS
+cask "claude"               # Claude
+cask "claude-code"          # Claude Code
