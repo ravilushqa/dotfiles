@@ -42,7 +42,6 @@ brew "zoxide"              # Modern replacement for cd
 brew "zsh-autosuggestions" # Fish-like autosuggestions for zsh
 brew "stow"                # Symlink farm manager
 brew "jira-cli"            # Jira command-line interface
-brew "lunar"               # Brightness control for macOS
 
 # Applications
 cask "1password-cli"        # 1Password command-line interface
@@ -74,3 +73,5 @@ cask "aldente"              # macOS battery saver
 cask "pearcleaner"          # Cleaner for macOS
 cask "claude"               # Claude
 cask "claude-code"          # Claude Code
+cask "jordanbaird-ice"      # Bartender alternative
+cask "lunar"                # Brightness control for macOS
