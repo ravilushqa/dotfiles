@@ -5,7 +5,7 @@
 ###########
 
 # Import additional configuration files
-general.import = ["~/.config/alacritty/themes/themes/nord.toml"]
+general.import = ["~/.config/alacritty/theme/themes/nord.toml"]
 
 # Shell program and its arguments
 # Default for Linux/BSD/macOS is $SHELL or user's login shell
@@ -70,7 +70,7 @@ dynamic_title = true # Default: true
 class = { instance = "Alacritty", general = "Alacritty" } # Default: instance = "Alacritty", general = "Alacritty"
 
 # Decorations theme variant
-decorations_theme_variant = "None" # Default: "None"
+decorations_theme_variant = "Dark" # Default: "None"
 
 # Resize increments
 resize_increments = false # Default: false

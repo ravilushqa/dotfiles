@@ -10,3 +10,5 @@ alias lt='eza --icons=auto --tree' # list folder as tree
 
 # Change Directory
 alias cd="z"
+
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"

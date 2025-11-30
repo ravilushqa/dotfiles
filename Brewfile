@@ -8,6 +8,7 @@ tap "homebrew/bundle"
 brew "mas"                 # Mac App Store command line interface
 brew "telnet"              # User interface to the TELNET protocol
 brew "git"                 # Version control system
+brew "gh"                  # GitHub CLI
 brew "jq"                  # Lightweight and flexible command-line JSON processor
 brew "htop"                # Improved top (interactive process viewer)
 brew "bat"                 # Cat clone with syntax highlighting
