@@ -6,22 +6,44 @@ My personal dotfiles managed with GNU Stow.
 
 This repository contains my configuration files (dotfiles) for various tools and applications. The configuration is organized into modules that can be individually linked to your home directory using GNU Stow.
 
+## Platform Support
+
+✅ **macOS** - Full support with Homebrew package management
+✅ **Linux** - Full support for Debian/Ubuntu (apt), Fedora (dnf), RHEL/CentOS (yum), and Arch (pacman)
+
+The installation script automatically detects your operating system and uses the appropriate package manager.
+
 ## Requirements
 
-- [GNU Stow](https://www.gnu.org/software/stow/)
-- [Homebrew](https://brew.sh/) (for macOS users)
+### Linux
+- Git
+- Curl
+- GNU Stow
+
+These will be automatically installed by `make install` using your distribution's package manager (apt, dnf, yum, or pacman).
+
+### macOS
+- [Homebrew](https://brew.sh/)
+- Homebrew will automatically install GNU Stow and other dependencies
 
 ## Installation
 
 ### Quick Start
 
-Clone the repository and run the installation script:
+Clone the repository and run the installation script (works on both macOS and Linux):
 
 ```bash
-git clone https://github.com/ravilushqa/dotfiles.git
-cd dotfiles
+git clone https://github.com/ravilushqa/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 make install
 ```
+
+The installation process will:
+1. Auto-detect your operating system (macOS or Linux)
+2. Install required dependencies
+3. Install and configure Zsh with Oh My Zsh
+4. Install Powerlevel10k theme and essential plugins
+5. Symlink all configuration files using GNU Stow
 
 ### Manual Installation
 
@@ -31,24 +53,44 @@ make install
    cd ~/.dotfiles
    ```
 
-2. Install Homebrew (if not already installed):
+2. **For Linux users:**
    ```bash
-   make homebrew
-   ```
+   # Install dependencies (git, curl, stow)
+   make check-dependencies
 
-3. Install packages from Brewfile:
-   ```bash
-   make brew-bundle
-   ```
+   # Install zsh and set as default shell
+   make install-zsh
 
-4. Stow configurations:
-   ```bash
+   # Install Oh My Zsh and Powerlevel10k
+   make install-ohmyzsh
+
+   # Install zsh plugins
+   make install-zsh-plugins
+
+   # Stow configurations
    make stow
    ```
 
-5. Set up personal Git configuration:
+3. **For macOS users:**
    ```bash
-   make git-local
+   # Install Homebrew (if not already installed)
+   make homebrew
+
+   # Install packages from Brewfile
+   make brew-bundle
+
+   # Install Oh My Zsh and plugins
+   make install-ohmyzsh
+   make install-zsh-plugins
+
+   # Stow configurations
+   make stow
+   ```
+
+4. **Set up personal Git configuration** (both platforms):
+   ```bash
+   # Edit your Git identity
+   vim ~/.config/git/config.user
    ```
 
 ## Available Modules
@@ -82,9 +124,18 @@ Edit `zsh/.zshrc.local` for machine-specific Zsh configurations.
 
 ## Maintenance
 
-- To update all stowed configurations: `make stow`
-- To update Homebrew packages: `make update`
-- To install new Homebrew packages: `make brew-bundle`
+### All Platforms
+- Update all stowed configurations: `make stow`
+
+### macOS Only
+- Update Homebrew: `make update`
+- Install new Homebrew packages: `make brew-bundle`
+
+### Linux
+- Update system packages using your distribution's package manager:
+  - Debian/Ubuntu: `sudo apt update && sudo apt upgrade`
+  - Fedora: `sudo dnf update`
+  - Arch: `sudo pacman -Syu`
 
 ## License
 
