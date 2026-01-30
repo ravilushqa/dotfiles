@@ -40,3 +40,11 @@ fi
 autoload -U compinit; compinit
 
 eval "$(zoxide init zsh)"
+
+# Fix key bindings for Linux terminals
+bindkey "\e[3~" delete-char          # Delete key
+bindkey "^[[3~" delete-char          # Delete key (alternative)
+bindkey "\e[H" beginning-of-line     # Home key
+bindkey "\e[F" end-of-line           # End key
+bindkey "^[[H" beginning-of-line     # Home key (alternative)
+bindkey "^[[F" end-of-line           # End key (alternative)
