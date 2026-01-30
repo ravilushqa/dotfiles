@@ -3,6 +3,8 @@ SHELL := /usr/bin/env bash
 
 DOTFILES_DIR := $(CURDIR)
 OS := $(shell uname -s)
+# Use sudo only if not running as root
+SUDO := $(shell [ $$(id -u) -eq 0 ] && echo "" || echo "sudo")
 
 all: install
 
@@ -35,17 +37,17 @@ check-dependencies:
 	@echo "==> Checking and installing dependencies"
 	@if command -v apt-get >/dev/null 2>&1; then \
 		echo "  -> Using apt package manager"; \
-		sudo apt-get update; \
-		sudo apt-get install -y git curl wget stow || exit 1; \
+		$(SUDO) apt-get update; \
+		$(SUDO) apt-get install -y git curl wget stow || exit 1; \
 	elif command -v dnf >/dev/null 2>&1; then \
 		echo "  -> Using dnf package manager"; \
-		sudo dnf install -y git curl wget stow || exit 1; \
+		$(SUDO) dnf install -y git curl wget stow || exit 1; \
 	elif command -v yum >/dev/null 2>&1; then \
 		echo "  -> Using yum package manager"; \
-		sudo yum install -y git curl wget stow || exit 1; \
+		$(SUDO) yum install -y git curl wget stow || exit 1; \
 	elif command -v pacman >/dev/null 2>&1; then \
 		echo "  -> Using pacman package manager"; \
-		sudo pacman -Sy --noconfirm git curl wget stow || exit 1; \
+		$(SUDO) pacman -Sy --noconfirm git curl wget stow || exit 1; \
 	else \
 		echo "✗ No supported package manager found (apt, dnf, yum, pacman)"; \
 		exit 1; \
@@ -56,13 +58,13 @@ install-zsh:
 	@echo "==> Installing zsh"
 	@if ! command -v zsh >/dev/null 2>&1; then \
 		if command -v apt-get >/dev/null 2>&1; then \
-			sudo apt-get install -y zsh; \
+			$(SUDO) apt-get install -y zsh; \
 		elif command -v dnf >/dev/null 2>&1; then \
-			sudo dnf install -y zsh; \
+			$(SUDO) dnf install -y zsh; \
 		elif command -v yum >/dev/null 2>&1; then \
-			sudo yum install -y zsh; \
+			$(SUDO) yum install -y zsh; \
 		elif command -v pacman >/dev/null 2>&1; then \
-			sudo pacman -S --noconfirm zsh; \
+			$(SUDO) pacman -S --noconfirm zsh; \
 		else \
 			echo "✗ Could not install zsh: no supported package manager"; \
 			exit 1; \
@@ -75,9 +77,9 @@ install-zsh:
 	@if [ "$$SHELL" != "$$(command -v zsh)" ]; then \
 		echo "  -> Attempting to change default shell to zsh"; \
 		if ! grep -q "$$(command -v zsh)" /etc/shells; then \
-			echo "$$(command -v zsh)" | sudo tee -a /etc/shells; \
+			echo "$$(command -v zsh)" | $(SUDO) tee -a /etc/shells; \
 		fi; \
-		sudo chsh -s "$$(command -v zsh)" $$USER || echo "  ⚠ Could not change shell automatically. Run: chsh -s $$(command -v zsh)"; \
+		$(SUDO) chsh -s "$$(command -v zsh)" $$USER || echo "  ⚠ Could not change shell automatically. Run: chsh -s $$(command -v zsh)"; \
 	else \
 		echo "✓ zsh is already the default shell"; \
 	fi
