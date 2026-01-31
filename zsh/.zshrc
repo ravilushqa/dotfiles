@@ -2,7 +2,8 @@
 # This file sources all modular configuration files
 
 # Define the base directory for zsh configuration
-ZSH_CONFIG_DIR="$HOME/projects/dotfiles/zsh"
+# Dynamically determine the directory where this .zshrc is located
+ZSH_CONFIG_DIR="${${(%):-%x}:a:h}"
 
 # Source theme configuration (should be first for instant prompt)
 source $ZSH_CONFIG_DIR/powerlevel10k.zsh
