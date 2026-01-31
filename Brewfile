@@ -2,6 +2,7 @@
 # Taps
 # ============================================================================
 tap "homebrew/bundle"
+tap "dex4er/tap"
 
 # ============================================================================
 # System Utilities
@@ -24,6 +25,7 @@ brew "fd"                  # Simple, fast and user-friendly alternative to find
 brew "ripgrep"             # Fast grep alternative
 brew "htop"                # Improved top (interactive process viewer)
 brew "jq"                  # Lightweight and flexible command-line JSON processor
+brew "witr"                # Why is this running?
 
 # ============================================================================
 # Version Control & Development Tools
@@ -66,6 +68,10 @@ brew "kustomize"           # Template-free customization of Kubernetes YAML mani
 brew "kubeseal"            # Kubernetes controller and tool for sealed secrets
 cask "openlens"            # Kubernetes IDE
 
+# ============================================================================
+# Infrastructure & DevOps
+# ============================================================================
+brew "tf"                  # Terraform wrapper with reduced verbosity and enhanced shell compatibility
 
 # ============================================================================
 # Databases
@@ -139,6 +145,7 @@ cask "pearcleaner"                   # Cleaner for macOS
 cask "lunar"                         # Brightness control for macOS
 cask "brisync"                       # Brightness control for external displays
 cask "wifiman"                       # Ubiquiti WiFi manager
+brew "mole"                          # Deep clean and optimize your Mac.
 
 # ----------------------------------------------------------------------------
 # Fonts
