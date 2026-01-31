@@ -39,4 +39,6 @@ fi
 
 autoload -U compinit; compinit
 
-eval "$(zoxide init zsh)"
+if [ -z "$DISABLE_ZOXIDE" ]; then
+    eval "$(zoxide init zsh)"
+fi

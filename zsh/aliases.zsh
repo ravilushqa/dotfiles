@@ -9,6 +9,8 @@ alias ld='eza -lhD --icons=auto' # long list dirs
 alias lt='eza --icons=auto --tree' # list folder as tree
 
 # Change Directory
-alias cd="z"
+if [[ -z "${CLAUDECODE}" ]]; then
+    alias cd="z"
+fi
 
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
