@@ -1,44 +1,28 @@
 {
   "mcpServers": {
     "fetch": {
-      "autoApprove": [
-        "fetch"
-      ],
+      "autoApprove": ["fetch"],
       "disabled": false,
       "timeout": 60,
       "command": "uvx",
-      "args": [
-        "mcp-server-fetch"
-      ],
+      "args": ["mcp-server-fetch"],
       "transportType": "stdio"
     },
     "brave-search": {
-      "autoApprove": [
-        "brave_web_search",
-        "brave_local_search"
-      ],
+      "autoApprove": ["brave_web_search", "brave_local_search"],
       "timeout": 60,
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-brave-search"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
       "env": {
         "BRAVE_API_KEY": "SECRET"
       },
       "transportType": "stdio"
     },
     "context7-mcp": {
-      "autoApprove": [
-        "resolve-library-id",
-        "get-library-docs"
-      ],
+      "autoApprove": ["resolve-library-id", "get-library-docs"],
       "timeout": 60,
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ],
+      "args": ["-y", "@upstash/context7-mcp@latest"],
       "transportType": "stdio"
     },
     "github": {
@@ -58,18 +42,12 @@
       "disabled": false,
       "timeout": 60,
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-github"],
       "transportType": "stdio",
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "SECRET"
       },
-      "alwaysAllow": [
-        "search_repositories",
-        "get_pull_request_comments"
-      ]
+      "alwaysAllow": ["search_repositories", "get_pull_request_comments"]
     },
     "mcp_k8s_go": {
       "command": "mcp-k8s-go",
@@ -92,6 +70,38 @@
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "mongodb": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mongodb-mcp-server",
+        "--indexCheck",
+        "true",
+        "--connectionString",
+        "mongodb+srv://user:pass@url",
+        "--readOnly"
+      ]
+    },
+    "grafana": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "GRAFANA_URL",
+        "-e",
+        "GRAFANA_API_KEY",
+        "mcp/grafana",
+        "-t",
+        "stdio",
+        "-debug"
+      ],
+      "env": {
+        "GRAFANA_URL": "xxx",
+        "GRAFANA_API_KEY": "xxx"
+      }
     }
   }
 }

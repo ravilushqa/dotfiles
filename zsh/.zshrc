@@ -22,3 +22,6 @@ source $ZSH_CONFIG_DIR/path.zsh
 
 # Source local configurations (should be last)
 source $ZSH_CONFIG_DIR/local.zsh
+
+# Added by Antigravity
+export PATH="/Users/r.galaktionov/.antigravity/antigravity/bin:$PATH"
