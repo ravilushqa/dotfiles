@@ -69,6 +69,9 @@ stow:
 	@echo "  -> Stowing zed configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt zed
 
+	@echo "  -> Stowing alacritty configuration"
+	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt alacritty
+
 	@echo "  -> Stowing claude configuration"
 	@cd $(DOTFILES_DIR) && stow -v -t $(HOME) --adopt claude
 
