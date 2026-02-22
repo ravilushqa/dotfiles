@@ -1,91 +1,53 @@
-# Dotfiles
+# dotfiles
 
-My personal dotfiles managed with GNU Stow.
+Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-## Overview
-
-This repository contains my configuration files (dotfiles) for various tools and applications. The configuration is organized into modules that can be individually linked to your home directory using GNU Stow.
-
-## Requirements
-
-- [GNU Stow](https://www.gnu.org/software/stow/)
-- [Homebrew](https://brew.sh/) (for macOS users)
-
-## Installation
-
-### Quick Start
-
-Clone the repository and run the installation script:
+## Quick Start
 
 ```bash
-git clone https://github.com/ravilushqa/dotfiles.git
-cd dotfiles
+git clone https://github.com/ravilushqa/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 make install
 ```
 
-### Manual Installation
+## What's Included
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ravilushqa/dotfiles.git ~/.dotfiles
-   cd ~/.dotfiles
-   ```
+| Package | Description |
+|---------|-------------|
+| `zsh` | Zsh config, aliases, plugins, p10k |
+| `git` | Git config, global gitignore |
+| `claude` | Claude Code agents, commands, statusline |
+| `ghostty` | Ghostty terminal config |
+| `alacritty` | Alacritty terminal config |
+| `ssh` | SSH config |
+| `zed` | Zed editor settings |
 
-2. Install Homebrew (if not already installed):
-   ```bash
-   make homebrew
-   ```
+## Claude Code Setup
 
-3. Install packages from Brewfile:
-   ```bash
-   make brew-bundle
-   ```
+### Global MCP (`.mcp.json`)
+Minimal — only Context7 for documentation lookup. Project-specific MCPs go in each repo's `.mcp.json`.
 
-4. Stow configurations:
-   ```bash
-   make stow
-   ```
+### Agents (`claude/.claude/agents/`)
+- **code-reviewer** — strict Go code review (security, performance, production readiness)
+- **debugger** — root cause analysis
+- **find-bugs** — security and bug hunting on branch changes
+- **terraform-architect** — IaC specialist
 
-5. Set up personal Git configuration:
-   ```bash
-   make git-local
-   ```
+### Commands (`claude/.claude/commands/`)
+- **`/code-review`** — comprehensive Go code quality review
+- **`/commit`** — smart commit with Go pre-checks and conventional format
+- **`/generate-tests`** — table-driven Go tests with mocks and benchmarks
+- **`/create-architecture-documentation`** — architecture docs generator
+- **`/plan`** — concise action plan for a coding task
+- **`/address-pr-comments`** — address review feedback on current PR
+- **`/iterate-pr`** — fix CI failures until green
 
-## Available Modules
+### MCP for projects (`mcp.json`)
+Template with Context7, GitHub, and K8s MCPs. Copy to project and fill in tokens.
 
-- **zsh**: Configuration for Z shell, including aliases, functions, and prompt
-- **git**: Git configuration, with separate files for aliases, user settings, etc.
+## Adding a New Package
 
-## Structure
-
-```
-dotfiles/
-├── Brewfile          # Homebrew packages
-├── Makefile          # Automation scripts
-├── git/              # Git configuration
-│   ├── .gitconfig    # Main Git config
-│   └── .config/git/  # Modular Git configurations
-└── zsh/              # Zsh configuration
-    ├── .zshrc        # Main Zsh config
-    └── .p10k.zsh     # Powerlevel10k configuration
-```
-
-## Customization
-
-### Git
-
-Edit `git/.config/git/config.user` to configure your Git identity.
-
-### Zsh
-
-Edit `zsh/.zshrc.local` for machine-specific Zsh configurations.
-
-## Maintenance
-
-- To update all stowed configurations: `make stow`
-- To update Homebrew packages: `make update`
-- To install new Homebrew packages: `make brew-bundle`
-
-## License
-
-MIT
+1. Create a directory: `mkdir mypackage`
+2. Mirror the home directory structure inside it
+3. Add stow command to `Makefile`
+4. Run `make stow`
