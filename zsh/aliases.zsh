@@ -1,6 +1,9 @@
 alias kctx='kubectx'
 alias cat='bat --pager=never'
 
+# Terraform wrapper - prevents errors with indexed parameters
+alias tf='noglob tf'
+
 # List Directory
 alias l='eza -lh  --icons=auto' # long list
 alias ls='eza -1   --icons=auto' # short list
