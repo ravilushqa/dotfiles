@@ -46,6 +46,7 @@ brew "jira-cli"            # Jira command-line interface
 # ============================================================================
 brew "go"                  # Open source programming language
 brew "golangci-lint"       # Go linters aggregator
+brew "delve"               # Go debugger (DAP)
 brew "mockery"             # Mock code autogenerator for Go
 
 # ============================================================================
@@ -72,6 +73,7 @@ cask "openlens"            # Kubernetes IDE
 # Infrastructure & DevOps
 # ============================================================================
 brew "tf"                  # Terraform wrapper with reduced verbosity and enhanced shell compatibility
+brew "terraform-ls"        # Terraform language server (for Zed extension)
 
 # ============================================================================
 # Databases

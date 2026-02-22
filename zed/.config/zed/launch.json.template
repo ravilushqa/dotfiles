@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "go",
+      "request": "launch",
+      "name": "Launch package",
+      "program": "${ZED_WORKTREE_ROOT}/cmd/server",
+      "args": []
+    },
+    {
+      "type": "go",
+      "request": "launch",
+      "name": "Test current file",
+      "mode": "test",
+      "program": "${ZED_FILE}"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Go: Run",
+    "command": "go run ./...",
+    "reveal": "always"
+  },
+  {
+    "label": "Go: Test all",
+    "command": "go test ./...",
+    "reveal": "always"
+  },
+  {
+    "label": "Go: Test current file",
+    "command": "go test $ZED_FILE",
+    "reveal": "always"
+  },
+  {
+    "label": "Go: Test with race",
+    "command": "go test -race ./...",
+    "reveal": "always"
+  },
+  {
+    "label": "Go: Lint",
+    "command": "golangci-lint run ./...",
+    "reveal": "always"
+  }
+]
