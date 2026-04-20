@@ -15,11 +15,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "alt-enter": "editor::ToggleCodeActions",
-      "cmd-alt-l": "editor::Format",
-      "shift-f6": "editor::Rename",
-      "cmd-shift-a": "command_palette::Toggle",
-      "alt-f7": "editor::FindAllReferences"
+      // "j k": ["workspace::SendKeystrokes", "escape"]
     }
   }
 ]
