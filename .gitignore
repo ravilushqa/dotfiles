@@ -22,6 +22,10 @@ Icon
 *.o
 *.so
 
+# Python
+__pycache__/
+*.pyc
+
 # Claude settings
 **/.claude/settings.local.json
 

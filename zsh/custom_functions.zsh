@@ -39,3 +39,18 @@ find_git_logs() {
 reload() {
     source ~/.zshrc
 }
+
+# --- Claude Code launchers -------------------------------------------------
+# Hub mode: notes / planning / standup / worklog. cwd = vault; the repos attach
+# automatically via the vault's .claude/settings.local.json additionalDirectories.
+claude-vault() { ( cd "$HOME/Sync/obsidian" && claude "$@" ) }
+
+# Work mode: focused code work in one repo, with the vault attached for
+# memory/skills. Usage: claude-work [repo]   (default: dh-adtech-campaigns)
+claude-work() {
+    local repo="${1:-dh-adtech-campaigns}"
+    local dir="$HOME/projects/$repo"
+    [[ -d "$dir" ]] || { echo "claude-work: no such repo: $dir" >&2; return 1; }
+    (( $# )) && shift
+    ( cd "$dir" && claude --add-dir "$HOME/Sync/obsidian" "$@" )
+}
