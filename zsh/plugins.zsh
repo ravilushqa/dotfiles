@@ -42,6 +42,6 @@ autoload -U compinit; compinit
 # tf wrapper - reuse terraform completions
 compdef _terraform tf
 
-if [ -z "$DISABLE_ZOXIDE" ]; then
+if [ -z "$DISABLE_ZOXIDE" ] && command -v zoxide &> /dev/null; then
     eval "$(zoxide init zsh)"
 fi

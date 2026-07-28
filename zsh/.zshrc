@@ -8,6 +8,9 @@ ZSH_CONFIG_DIR="${${(%):-%x}:a:h}"
 # Source theme configuration (should be first for instant prompt)
 source $ZSH_CONFIG_DIR/powerlevel10k.zsh
 
+# Load Homebrew environment (must come before plugins so brew tools are on PATH)
+source $ZSH_CONFIG_DIR/brew.zsh
+
 # Source plugin configurations
 source $ZSH_CONFIG_DIR/plugins.zsh
 
