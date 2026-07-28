@@ -1,19 +1,70 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
-    "DISABLE_TELEMETRY": "1",
     "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1",
     "DISABLE_ZOXIDE": "1"
   },
-  "model": "sonnet[1m]",
+  "permissions": {
+    "allow": [
+      "Bash(kubectl *)",
+      "Bash(python3 *)",
+      "Bash(go list *)",
+      "Bash(go get *)",
+      "Bash(go generate *)",
+      "Bash(go mod *)",
+      "Bash(buf generate *)",
+      "Bash(buf mod *)",
+      "Bash(buf dep *)",
+      "Bash(gh pr *)",
+      "Bash(gh api *)",
+      "Bash(gh search *)",
+      "Bash(gh repo *)",
+      "Bash(jira issue:*)",
+      "Bash(git mv:*)",
+      "Bash(cd:*)",
+      "WebSearch",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "mcp__grafana__query_loki_logs",
+      "mcp__grafana__query_loki_stats",
+      "mcp__grafana__list_loki_label_values",
+      "mcp__grafana__list_loki_label_names",
+      "mcp__grafana__list_datasources",
+      "mcp__grafana__generate_deeplink",
+      "mcp__plugin_slack_slack__slack_search_public",
+      "mcp__plugin_slack_slack__slack_search_public_and_private",
+      "mcp__plugin_slack_slack__slack_search_channels",
+      "mcp__plugin_slack_slack__slack_search_users",
+      "mcp__plugin_slack_slack__slack_read_channel",
+      "mcp__plugin_slack_slack__slack_read_thread",
+      "mcp__plugin_slack_slack__slack_read_file"
+    ]
+  },
+  "model": "opus[1m]",
   "hooks": {
-    "PreToolUse": [
+    "Notification": [
       {
-        "matcher": "Bash",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/rtk-rewrite.sh"
+            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "timeout": 10,
+            "async": true
           }
         ]
       }
@@ -26,6 +77,83 @@
             "type": "command",
             "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | { read -r f; if [[ \"$f\" == *.go ]]; then echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"You just edited a Go file. Run go_diagnostics on the edited file before proceeding.\"}}'; fi; }",
             "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|Write|NotebookEdit|Grep|Glob|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/block-secret-reads.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/rtk-rewrite.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "timeout": 10,
+            "async": true
           }
         ]
       }
@@ -42,7 +170,7 @@
         ]
       }
     ],
-    "SessionEnd": [
+    "Stop": [
       {
         "matcher": "",
         "hooks": [
@@ -80,71 +208,6 @@
           }
         ]
       }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
     ]
   },
   "statusLine": {
@@ -152,32 +215,40 @@
     "command": "bash -c 'cols=$(stty size </dev/tty 2>/dev/null | awk '\"'\"'{print $2}'\"'\"'); export COLUMNS=$(( ${cols:-120} > 4 ? ${cols:-120} - 4 : 1 )); plugin_dir=$(ls -d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/*/claude-hud/*/ 2>/dev/null | awk -F/ '\"'\"'{ print $(NF-1) \"\\t\" $0 }'\"'\"' | grep -E '\"'\"'^[0-9]+\\.[0-9]+\\.[0-9]+\\t'\"'\"' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); runtime=$(command -v bun 2>/dev/null || command -v node 2>/dev/null); if [ \"$(basename \"$runtime\")\" = bun ]; then exec \"$runtime\" --env-file /dev/null \"${plugin_dir}src/index.ts\"; else exec \"$runtime\" \"${plugin_dir}dist/index.js\"; fi'"
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
+    "claude-hud@claude-hud": true,
     "claude-md-management@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
-    "slack@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "grafana-assistant@grafana-ai-marketplace": true,
     "grafana-mcp@grafana-ai-marketplace": true,
-    "claude-hud@claude-hud": true
+    "slack@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "plannotator-effective-html@effective-html": true
   },
   "extraKnownMarketplaces": {
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    },
     "grafana-ai-marketplace": {
       "source": {
         "source": "github",
         "repo": "grafana/ai-marketplace"
       }
     },
-    "claude-hud": {
+    "effective-html": {
       "source": {
         "source": "github",
-        "repo": "jarrodwatts/claude-hud"
+        "repo": "plannotator/effective-html"
       }
     }
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "medium",
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085546361
