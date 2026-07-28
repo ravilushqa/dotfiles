@@ -1,7 +1,6 @@
 # ============================================================================
 # Taps
 # ============================================================================
-tap "homebrew/bundle"
 tap "dex4er/tap"
 tap "peonping/tap"
 
@@ -15,8 +14,9 @@ brew "stow"                # Symlink farm manager
 # ============================================================================
 # Shell & Terminal Tools
 # ============================================================================
-brew "powerlevel10k"       # Theme for Zsh
-brew "zsh-autosuggestions" # Fish-like autosuggestions for zsh
+# NOTE: powerlevel10k, zsh-autosuggestions and zsh-syntax-highlighting are installed
+# by `make omz` into ~/.oh-my-zsh/custom (that's where oh-my-zsh loads them from),
+# so they are intentionally NOT Homebrew formulae here.
 brew "fzf"                 # Command-line fuzzy finder
 brew "bat"                 # Cat clone with syntax highlighting
 brew "tree"                # Display directories as trees
@@ -73,7 +73,7 @@ cask "openlens"            # Kubernetes IDE
 # ============================================================================
 # Infrastructure & DevOps
 # ============================================================================
-brew "tf"                  # Terraform wrapper with reduced verbosity and enhanced shell compatibility
+cask "dex4er/tap/tf"       # Terraform wrapper with reduced verbosity and enhanced shell compatibility
 brew "terraform-ls"        # Terraform language server (for Zed extension)
 
 # ============================================================================
