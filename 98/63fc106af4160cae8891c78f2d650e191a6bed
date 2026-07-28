@@ -1,0 +1,40 @@
+README.md
+  s_8ee7d2fc304da7::t_a27efcb8df0738 3-4,6,8,11,14-16,18,20-27,29,31,33-40,42,44-49,51,53-56,59,61,63-67,69,71-72,76-93,97
+Makefile
+  s_8ee7d2fc304da7::t_f5631e49922756 2,4-11,15,19-25,30-38,42-43,45-55,57-67,69,71-79,84,86-100,102-103,105-110,112-117,119-140
+zsh/plugins.zsh
+  s_8ee7d2fc304da7::t_f431b072ab0129 45
+Brewfile
+  s_8ee7d2fc304da7::t_871784a7bdf4ad 17-19
+  s_3f7e6f3975dc26::t_e61bf37f049f36 76
+zsh/brew.zsh
+  s_8ee7d2fc304da7::t_5075d2c13de8e2 1-8
+zsh/.zshrc
+  s_8ee7d2fc304da7::t_b6ca10092dc362 11-13
+bootstrap.sh
+  s_8ee7d2fc304da7::t_4e2955b06b0e25 1-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "9863fc106af4160cae8891c78f2d650e191a6bed",
+  "prompts": {},
+  "sessions": {
+    "s_3f7e6f3975dc26": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "495e6f02-25f8-4eef-9d2b-ed51fb67c24f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "ravilushqa-dh <ravilushqa-dh@users.noreply.github.com>"
+    },
+    "s_8ee7d2fc304da7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ce0cf1bb-3046-49ed-a97a-a9cc481454bf",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "ravilushqa-dh <ravilushqa-dh@users.noreply.github.com>"
+    }
+  }
+}
