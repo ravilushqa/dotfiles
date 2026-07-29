@@ -39,6 +39,7 @@ brew "neovim"              # Vim-fork focused on extensibility and usability
 brew "asdf"                # Multiple runtime version manager
 brew "aider"               # AI pair programming tool
 brew "mods"                # AI CLI tools
+brew "herdr"               # Agent multiplexer that lives in your terminal
 brew "hurl"                # HTTP testing and debugging
 brew "jira-cli"            # Jira command-line interface
 
