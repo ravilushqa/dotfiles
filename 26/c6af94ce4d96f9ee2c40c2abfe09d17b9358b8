@@ -1,0 +1,21 @@
+Brewfile
+  s_8ee7d2fc304da7::t_1bbc2c509b3120 42
+CLAUDE.md
+  s_8ee7d2fc304da7::t_08cdddf5c8b77f 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "26c6af94ce4d96f9ee2c40c2abfe09d17b9358b8",
+  "prompts": {},
+  "sessions": {
+    "s_8ee7d2fc304da7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ce0cf1bb-3046-49ed-a97a-a9cc481454bf",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "ravilushqa-dh <ravilushqa-dh@users.noreply.github.com>"
+    }
+  }
+}
