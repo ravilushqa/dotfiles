@@ -145,7 +145,7 @@ cask "spotify"                       # Music streaming service
 # System Utilities
 # ----------------------------------------------------------------------------
 cask "bartender"                     # Menu bar icon organizer
-cask "jordanbaird-ice"               # Bartender alternative
+cask "thaw"                          # Menu bar manager (Ice fork)
 cask "aldente"                       # macOS battery saver
 cask "pearcleaner"                   # Cleaner for macOS
 cask "lunar"                         # Brightness control for macOS
