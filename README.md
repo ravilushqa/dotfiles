@@ -65,6 +65,7 @@ Stow packages linked into `$HOME`:
 - **ssh** — `~/.ssh/config` (default identity `~/.ssh/id_ed25519`)
 - **ghostty**, **zed** — terminal / editor config
 - **claude** — Claude Code config (`~/.claude/`)
+- **raycast** — Raycast Script Commands (`~/.config/raycast/scripts/`), e.g. `refine.sh` (reads `OPENAI_API_KEY` / `REFINE_MODEL` from env or `~/.zshrc.local`)
 
 ## Customization
 
