@@ -43,32 +43,6 @@
   },
   "model": "opus[1m]",
   "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
@@ -86,32 +60,6 @@
           {
             "type": "command",
             "command": "$HOME/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
-          }
-        ]
-      }
-    ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
           }
         ]
       }
@@ -136,30 +84,7 @@
         ]
       }
     ],
-    "SessionEnd": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
     "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10
-          }
-        ]
-      },
       {
         "matcher": "*",
         "hooks": [
@@ -167,45 +92,6 @@
             "type": "command",
             "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
             "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] || exit 0; exec \"$p\"'",
-            "timeout": 10,
-            "async": true
           }
         ]
       }

@@ -14,6 +14,6 @@ GNU Stow + Homebrew macOS dotfiles. Entry points: `bootstrap.sh` (cold start) an
   so `git status` shows it modified — don't sweep that drift into unrelated commits.
 
 ## Conventions
-- Custom taps (`dex4er/tap`, `peonping/tap`) need `brew trust` — handled by `make brew-taps`.
+- Custom tap `dex4er/tap` needs `brew trust` — handled by `make brew-taps`.
 - `make stow` backs up conflicting real files to `~/.dotfiles-backup-<ts>/` (no `--adopt`).
 - Recipes must resolve brew via `$(BREW)` + `eval "$$($(BREW) shellenv)"` (PATH isn't set on a fresh Mac).

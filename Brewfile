@@ -2,7 +2,6 @@
 # Taps
 # ============================================================================
 tap "dex4er/tap"
-tap "peonping/tap"
 
 # ============================================================================
 # System Utilities
@@ -117,7 +116,6 @@ cask "claude"                        # Claude AI assistant
 cask "claude-code"                   # Claude Code
 cask "superwhisper"                  # AI voice input
 cask "deepl"                         # AI translator
-brew "peon-ping"                     # Sound effects and desktop notifications for AI coding agents
 
 # ----------------------------------------------------------------------------
 # Productivity

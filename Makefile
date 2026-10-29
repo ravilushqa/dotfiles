@@ -8,7 +8,7 @@ STOW_MODULES   := zsh git ghostty ssh zed claude raycast
 OMZ_DIR        := $(HOME)/.oh-my-zsh
 ZSH_CUSTOM_DIR := $(HOME)/.oh-my-zsh/custom
 BACKUP_DIR     := $(HOME)/.dotfiles-backup-$(shell date +%Y%m%d-%H%M%S)
-CUSTOM_TAPS    := dex4er/tap peonping/tap
+CUSTOM_TAPS    := dex4er/tap
 
 all: install
 
