@@ -127,15 +127,6 @@
         ]
       },
       {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/rtk-rewrite.sh"
-          }
-        ]
-      },
-      {
         "matcher": "*",
         "hooks": [
           {
@@ -165,6 +156,16 @@
           {
             "type": "command",
             "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
             "timeout": 10
           }
         ]
@@ -225,7 +226,10 @@
     "grafana-mcp@grafana-ai-marketplace": true,
     "slack@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "plannotator-effective-html@effective-html": true
+    "plannotator-effective-html@effective-html": true,
+    "ponytail@ponytail": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "text-to-cad@earthtojake": true
   },
   "extraKnownMarketplaces": {
     "claude-hud": {
@@ -245,6 +249,19 @@
         "source": "github",
         "repo": "plannotator/effective-html"
       }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "earthtojake": {
+      "source": {
+        "source": "github",
+        "repo": "earthtojake/text-to-cad",
+        "ref": "latest"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
@@ -252,5 +269,13 @@
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085546361
-  }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "promptSuggestionEnabled": false,
+  "tui": "fullscreen",
+  "agentPushNotifEnabled": true
 }
