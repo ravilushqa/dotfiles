@@ -17,6 +17,7 @@
 DEFAULT_MODEL="gpt-6-luna"            # any Chat Completions model id
 ENV_FILE="$HOME/.zshrc.local"
 KEYCHAIN_SERVICE="openai-api-key"
+NOTIFY=1                              # 0 = no "Refining…" notification at start
 
 read -r -d '' PROMPT <<'EOF'
 You are an expert editor. Improve the clarity, flow, grammar, spelling and punctuation of the user's text.
@@ -61,6 +62,13 @@ for _ in 1 2 3 4 5 6 7 8 9 10; do
 done
 restore() { printf '%s' "$OLD_CLIPBOARD" | pbcopy; }
 [ -n "$TEXT" ] || { restore; fail "nothing selected"; }
+
+# Let the user know the request is in flight (Raycast only shows the final HUD).
+if [ "$NOTIFY" = 1 ]; then
+  osascript -e 'on run argv' \
+    -e 'display notification ("Refining with " & item 1 of argv & "…") with title "Refine"' \
+    -e 'end run' "$MODEL" >/dev/null 2>&1 &
+fi
 
 # 2. Ask the model.
 BODY=$(jq -n --arg model "$MODEL" --arg sys "$PROMPT" --arg text "$TEXT" \

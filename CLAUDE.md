@@ -10,8 +10,12 @@ GNU Stow + Homebrew macOS dotfiles. Entry points: `bootstrap.sh` (cold start) an
   Workaround: write the message/body to a temp file and use `-F` / `--body-file`.
 - **Machine-local config is gitignored**: `~/.config/git/config.user`, `~/.zshrc.local`
   (scaffolded from `.example` by `make local-config`), and private SSH hosts in `~/.ssh/config.local`. Never move corporate/secret values into tracked files.
-- **`claude/.claude/settings.json` is a stow symlink the running app writes** (model/effort/theme),
-  so `git status` shows it modified — don't sweep that drift into unrelated commits.
+- **`claude/.claude/settings.json` is a stow symlink the running app writes.** A git clean filter
+  (`make git-filters`, `.gitattributes`) strips `model`/`effortLevel`/`modelSettings`/`feedbackSurveyState`
+  on `git add`; other app-written keys can still drift — don't sweep that into unrelated commits.
+- **`claude` is stowed with `--no-folding`**: `~/.claude/{skills,agents,commands}` are real dirs.
+  In repo = synced; placed directly in `~/.claude/...` = machine-local. Same for
+  `~/.claude/CLAUDE.local.md` (imported from the tracked `CLAUDE.md`).
 
 ## Conventions
 - Custom tap `dex4er/tap` needs `brew trust` — handled by `make brew-taps`.
