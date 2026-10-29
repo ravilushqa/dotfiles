@@ -43,32 +43,6 @@
   },
   "model": "opus[1m]",
   "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
@@ -90,32 +64,6 @@
         ]
       }
     ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
     "PreToolUse": [
       {
         "matcher": "Read|Edit|Write|NotebookEdit|Grep|Glob|Bash",
@@ -123,15 +71,6 @@
           {
             "type": "command",
             "command": "$HOME/.claude/hooks/block-secret-reads.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/rtk-rewrite.sh"
           }
         ]
       },
@@ -145,66 +84,14 @@
         ]
       }
     ],
-    "SessionEnd": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
-        "matcher": "",
+        "matcher": "*",
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
+            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
             "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'p=\"$HOME/.claude/hooks/peon-ping/peon.sh\"; [ -x \"$p\" ] && exec \"$p\"'",
-            "timeout": 10,
-            "async": true
           }
         ]
       }
@@ -225,7 +112,10 @@
     "grafana-mcp@grafana-ai-marketplace": true,
     "slack@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "plannotator-effective-html@effective-html": true
+    "plannotator-effective-html@effective-html": true,
+    "ponytail@ponytail": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "text-to-cad@earthtojake": true
   },
   "extraKnownMarketplaces": {
     "claude-hud": {
@@ -245,6 +135,19 @@
         "source": "github",
         "repo": "plannotator/effective-html"
       }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "earthtojake": {
+      "source": {
+        "source": "github",
+        "repo": "earthtojake/text-to-cad",
+        "ref": "latest"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
@@ -252,5 +155,13 @@
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085546361
-  }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "promptSuggestionEnabled": false,
+  "tui": "fullscreen",
+  "agentPushNotifEnabled": true
 }

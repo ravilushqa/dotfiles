@@ -4,11 +4,11 @@ SHELL := /usr/bin/env bash
 DOTFILES_DIR   := $(CURDIR)
 # Resolve brew even when /opt/homebrew/bin isn't on PATH yet (fresh Apple Silicon Mac).
 BREW           := $(shell command -v brew 2>/dev/null || echo /opt/homebrew/bin/brew)
-STOW_MODULES   := zsh git ghostty ssh zed claude
+STOW_MODULES   := zsh git ghostty ssh zed claude raycast
 OMZ_DIR        := $(HOME)/.oh-my-zsh
 ZSH_CUSTOM_DIR := $(HOME)/.oh-my-zsh/custom
 BACKUP_DIR     := $(HOME)/.dotfiles-backup-$(shell date +%Y%m%d-%H%M%S)
-CUSTOM_TAPS    := dex4er/tap peonping/tap
+CUSTOM_TAPS    := dex4er/tap
 
 all: install
 

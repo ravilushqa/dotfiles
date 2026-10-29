@@ -7,10 +7,34 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "disable_ai": false,
+  "cli_default_open_behavior": "existing_window",
+  "agent_servers": {
+    "gemini": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
   "edit_predictions": {
     "provider": "zed"
   },
   "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
     "tool_permissions": {
       "default": "allow"
     },

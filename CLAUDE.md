@@ -9,11 +9,11 @@ GNU Stow + Homebrew macOS dotfiles. Entry points: `bootstrap.sh` (cold start) an
   A `git commit -m`/`gh pr create --body` that merely *mentions* those paths is rejected.
   Workaround: write the message/body to a temp file and use `-F` / `--body-file`.
 - **Machine-local config is gitignored**: `~/.config/git/config.user`, `~/.zshrc.local`
-  (scaffolded from `.example` by `make local-config`). Never move corporate/secret values into tracked files.
+  (scaffolded from `.example` by `make local-config`), and private SSH hosts in `~/.ssh/config.local`. Never move corporate/secret values into tracked files.
 - **`claude/.claude/settings.json` is a stow symlink the running app writes** (model/effort/theme),
   so `git status` shows it modified — don't sweep that drift into unrelated commits.
 
 ## Conventions
-- Custom taps (`dex4er/tap`, `peonping/tap`) need `brew trust` — handled by `make brew-taps`.
+- Custom tap `dex4er/tap` needs `brew trust` — handled by `make brew-taps`.
 - `make stow` backs up conflicting real files to `~/.dotfiles-backup-<ts>/` (no `--adopt`).
 - Recipes must resolve brew via `$(BREW)` + `eval "$$($(BREW) shellenv)"` (PATH isn't set on a fresh Mac).

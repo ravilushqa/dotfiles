@@ -33,7 +33,7 @@ exec zsh               # restart your shell
 | Target        | Action |
 |---------------|--------|
 | `homebrew`    | Installs Homebrew if missing; puts it on PATH. |
-| `brew-taps`   | Taps **and `brew trust`s** the custom taps `dex4er/tap` and `peonping/tap` (modern Homebrew blocks untrusted taps). |
+| `brew-taps`   | Taps **and `brew trust`s** the custom tap `dex4er/tap` (modern Homebrew blocks untrusted taps). |
 | `brew-bundle` | Installs everything in the `Brewfile`. |
 | `omz`         | Installs oh-my-zsh and clones `powerlevel10k`, `zsh-autosuggestions`, `zsh-syntax-highlighting` into `~/.oh-my-zsh/custom`. |
 | `stow`        | Symlinks all config modules into `$HOME` (backing up any pre-existing real files to `~/.dotfiles-backup-<timestamp>/`). |
@@ -65,6 +65,7 @@ Stow packages linked into `$HOME`:
 - **ssh** — `~/.ssh/config` (default identity `~/.ssh/id_ed25519`)
 - **ghostty**, **zed** — terminal / editor config
 - **claude** — Claude Code config (`~/.claude/`)
+- **raycast** — Raycast Script Commands (`~/.config/raycast/scripts/`), e.g. `refine.sh` (reads `OPENAI_API_KEY` / `REFINE_MODEL` from env or `~/.zshrc.local`)
 
 ## Customization
 

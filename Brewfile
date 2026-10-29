@@ -2,7 +2,6 @@
 # Taps
 # ============================================================================
 tap "dex4er/tap"
-tap "peonping/tap"
 
 # ============================================================================
 # System Utilities
@@ -83,7 +82,7 @@ brew "terraform-ls"        # Terraform language server (for Zed extension)
 brew "mongosh"             # MongoDB Shell
 brew "redis"               # Persistent key-value database
 brew "mysql"               # Open source relational database management system
-brew "postgresql"          # Object-relational database system
+brew "postgresql@18"         # Object-relational database system
 
 # ============================================================================
 # Applications
@@ -117,8 +116,6 @@ cask "claude"                        # Claude AI assistant
 cask "claude-code"                   # Claude Code
 cask "superwhisper"                  # AI voice input
 cask "deepl"                         # AI translator
-brew "rtk"                           # CLI proxy to minimize LLM token consumption
-brew "peon-ping"                     # Sound effects and desktop notifications for AI coding agents
 
 # ----------------------------------------------------------------------------
 # Productivity

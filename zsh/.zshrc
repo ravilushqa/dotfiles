@@ -3,7 +3,7 @@
 
 # Define the base directory for zsh configuration
 # Dynamically determine the directory where this .zshrc is located
-ZSH_CONFIG_DIR="${${(%):-%x}:a:h}"
+ZSH_CONFIG_DIR="${${(%):-%x}:A:h}"
 
 # Source theme configuration (should be first for instant prompt)
 source $ZSH_CONFIG_DIR/powerlevel10k.zsh
