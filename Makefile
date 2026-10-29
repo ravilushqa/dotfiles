@@ -1,5 +1,5 @@
 SHELL := /usr/bin/env bash
-.PHONY: all install homebrew update brew-taps brew-bundle omz stow local-config git-local zsh-local ssh-key
+.PHONY: all install homebrew update brew-taps brew-bundle omz stow git-filters local-config git-local zsh-local ssh-key
 
 DOTFILES_DIR   := $(CURDIR)
 # Resolve brew even when /opt/homebrew/bin isn't on PATH yet (fresh Apple Silicon Mac).
@@ -12,7 +12,7 @@ CUSTOM_TAPS    := dex4er/tap
 
 all: install
 
-install: homebrew brew-bundle omz stow local-config
+install: homebrew brew-bundle omz stow git-filters local-config
 	@echo
 	@echo "=========================================="
 	@echo "Dotfiles installation complete!"
@@ -95,9 +95,17 @@ stow:
 			mkdir -p "$(BACKUP_DIR)/$$(dirname "$$rel")"; \
 			mv "$$tgt" "$(BACKUP_DIR)/$$rel"; \
 		done; \
-		stow -R -v -t "$(HOME)" -d "$(DOTFILES_DIR)" "$$m"; \
+		nf=; [ "$$m" = claude ] && nf=--no-folding; \
+		stow -R -v $$nf --ignore='\.DS_Store' -t "$(HOME)" -d "$(DOTFILES_DIR)" "$$m"; \
 	done
 	@echo "✓ Configuration files stowed"
+
+# Strip runtime keys Claude Code writes into settings.json (model/effort/...) on git add.
+git-filters:
+	@git -C "$(DOTFILES_DIR)" config filter.claude-settings.clean \
+		"jq 'del(.model, .effortLevel, .modelSettings, .feedbackSurveyState)'"
+	@git -C "$(DOTFILES_DIR)" config filter.claude-settings.smudge cat
+	@echo "✓ git filters configured"
 
 # Scaffold machine-local files from their .example templates (never overwrites).
 local-config: git-local zsh-local

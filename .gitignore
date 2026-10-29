@@ -32,5 +32,3 @@ __pycache__/
 # Temporary files
 tmp/
 git/.config/git/config.user
-# Claude app-synced skills (personal, not portable)
-claude/.claude/skills/synced/

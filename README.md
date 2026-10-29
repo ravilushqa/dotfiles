@@ -90,8 +90,10 @@ Stow packages linked into `$HOME`:
   runtime. `asdf` is installed; add a terraform version via asdf (or install `terraform`
   separately) if you use it.
 - **`claude/.claude/settings.json` is a symlink**, and Claude Code writes runtime settings
-  (model, effort, theme) through it. Expect `git status` to occasionally show it as modified;
-  commit or discard that churn as you see fit.
+  through it. `make git-filters` installs a jq clean filter that drops model/effort keys on
+  `git add`, so per-machine model choices don't conflict.
+- **Machine-local Claude skills/agents/notes**: put them directly in `~/.claude/skills/`,
+  `~/.claude/agents/` or `~/.claude/CLAUDE.local.md` — they are not part of the repo.
 
 ## License
 
